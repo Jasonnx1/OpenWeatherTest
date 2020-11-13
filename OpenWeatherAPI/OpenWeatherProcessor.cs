@@ -41,6 +41,7 @@ namespace OpenWeatherAPI
         {
             BaseURL = $"https://api.openweathermap.org/data/2.5";
             EndPoint = $"/weather?";
+            ApiKey = "";
         }
 
         

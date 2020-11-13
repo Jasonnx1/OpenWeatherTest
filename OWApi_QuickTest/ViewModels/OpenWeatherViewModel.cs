@@ -39,6 +39,7 @@ namespace OWApi_QuickTest.ViewModels
         {
             GetCurrentWeatherCommand = new DelegateCommand<string>(GetCurrentWeather);
             GetOneCallCommand = new DelegateCommand<string>(GetOneCall);
+
         }
 
         private async void GetOneCall(string obj)
