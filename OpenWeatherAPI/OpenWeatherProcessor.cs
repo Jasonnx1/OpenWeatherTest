@@ -41,7 +41,7 @@ namespace OpenWeatherAPI
         {
             BaseURL = $"https://api.openweathermap.org/data/2.5";
             EndPoint = $"/weather?";
-            ApiKey = "";
+            ApiKey = "7a0f54c873e0fa936f2651ac2a346ae3";
         }
 
         
@@ -53,6 +53,19 @@ namespace OpenWeatherAPI
         {
             
             EndPoint = $"/onecall?";
+
+            if (ApiKey == null || ApiKey == "")
+            {
+
+                throw new ArgumentException("ApiKey is null or empty");
+
+            }
+
+            if (ApiHelper.ApiClient == null)
+            {
+                throw new ArgumentException("ApiClient is null");
+            }
+
 
             /// Src : https://stackoverflow.com/a/14517976/503842
             var uriBuilder = new UriBuilder($"{BaseURL}{EndPoint}");
@@ -80,6 +93,18 @@ namespace OpenWeatherAPI
 
             /// Src : https://stackoverflow.com/a/14517976/503842
             var uriBuilder = new UriBuilder($"{BaseURL}{EndPoint}");
+
+            if(ApiKey == null || ApiKey == "")
+            {
+
+                throw new ArgumentException("ApiKey is null or empty");
+
+            }
+
+            if(ApiHelper.ApiClient == null)
+            {
+                throw new ArgumentException("ApiClient is null");
+            }
 
             var query = HttpUtility.ParseQueryString(uriBuilder.Query);
             query["q"] = "Shawinigan"; // Shawinigan
